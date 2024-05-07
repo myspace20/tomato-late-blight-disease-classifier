@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "CommonJS",
+    "strict": true,
+    "esModuleInterop": true,
+    "outDir": "./dist",
+    "skipLibCheck": true,
+    "rootDirs": ["/server"],
+    "alwaysStrict": false,
+    "strictPropertyInitialization": false,
+    "resolveJsonModule": true,
+    "allowJs": true
+  },
+  "include": ["**/*.ts", "scripts/keypair.mjs"],
+  "exclude": ["node_modules"]
+}
