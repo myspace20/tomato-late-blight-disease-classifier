@@ -1,19 +1,18 @@
 
 # disease classifier
 
-This project seeks to solve the problem of late late blight disease detection in the tomato plant and uses the transfer learning technique to remove the boundary of limited resources faced when training models from. It uses the popular MobilenetV2 as its base model.
+This project seeks to solve the problem of late blight disease detection in the tomato plant. It uses the transfer learning technique to remove the boundary of limited resources faced when training models from scratch. It uses the popular MobilenetV2 as its base model.
 
 
 
 
 ## Overview
-
 The project consists of two servers:
 
  - The CRUD server for persisting user and scan data.
- - THe machine learning server is used for disease classification.
+ - The machine learning server is used for disease classification.
 
- The CRUD server server sends a form data to the classification server which returns a JSON response to the CRUD server containg the results of the classification. The received response and some user specific data are also persisted into the database. The CRUD server is also responsible for user authentication.
+ The CRUD server sends a form of data to the classification server which returns a JSON response to the CRUD server. The received response and some user-specific data are also persisted in the database. The CRUD server is also responsible for user authentication.
 
 NB: Save and load models with the same tensorflow versions. Use the following as a reference:
 (https://github.com/tensorflow/tensorflow/issues/62363)
@@ -141,11 +140,6 @@ Machine Learning(Flask)
  - pillow 
  - Flask 
  - numpy 
-
-## Model Training and Development
-
-
-
 ## JWT RSA-256 Encryption
 
 - Navigate to the scripts folder and run the keypair.mjs file to generate a key pair for RSA use cases(Such as a pair both refresh and access tokens respectively). Copy and place them in the .env file.
@@ -192,12 +186,16 @@ require('dotenv').config({ path: path.resolve(__dirname, '../.env'), override: t
 ## Documentation Specification
 
 - Postman is used for documentation purposes.
+To view and/or download documentation, go to the docs folder.
 ## Tests
 
 - Unit tests
+    ```bash
+    npm run test
+    ```
 - e2e tests
 ## Monitoring
 
-- Prom-client
-- Grafna
+- Prom-client, for collecting metrics
+- Grafna, for visualizations
 - Cadvisor for container metrics
