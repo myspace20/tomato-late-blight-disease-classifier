@@ -5,7 +5,6 @@ import config from '../../../config/default';
 import { loginSchema } from './schema';
 import { JwtPayload } from 'jsonwebtoken';
 
-
 export const authLoginPost = async (req: Request, res: Response) => {
   await loginSchema.validateAsync(req.body, {
     abortEarly: false,
@@ -26,13 +25,17 @@ export const authLoginPost = async (req: Request, res: Response) => {
     httpOnly: true,
     maxAge: 300000,
     secure: true,
+    // sameSite:"none",
+    path:"/"
   });
   res.cookie('refreshToken', refreshToken, {
     httpOnly: true,
-    maxAge: 3.154e10,
+    maxAge: 1.44e+7,
     secure: true,
+    // sameSite:"none",
+    path:"/"
   });
-  res.send('login successfull');
+  res.send('Login successfull');
 };
 
 export const refreshTokenHandler = async (req: Request, res: Response) => {
@@ -66,15 +69,15 @@ export const refreshTokenHandler = async (req: Request, res: Response) => {
   });
   res.cookie('refreshToken', newRefreshToken, {
     httpOnly: true,
-    maxAge: 3.154e10,
+    maxAge: 1.44e+7,
     secure: true,
   });
 
-  return res.send('success');
+  return res.send('Token refresh successfull');
 };
 
 export const logoutHandler = async (req: Request, res: Response) => {
   res.clearCookie('accessToken');
   res.clearCookie('refreshToken');
-  res.status(204).send('logout successfull');
+  res.status(204).send('Log out successfull');
 };

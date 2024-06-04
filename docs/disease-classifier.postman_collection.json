@@ -1,0 +1,314 @@
+{
+	"info": {
+		"_postman_id": "2b63364e-5d94-4cfb-8436-88a997d10703",
+		"name": "disease-classifier",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "25756715"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "Register a new user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "test@mail.com",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "!22343@111",
+									"type": "default"
+								},
+								{
+									"key": "display_name",
+									"value": "test_one",
+									"type": "text"
+								}
+							]
+						},
+						"url": "{{endpoint}}/v1/auth/register"
+					},
+					"response": []
+				},
+				{
+					"name": "Log out",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{endpoint}}/v1/auth/logout"
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": "{{endpoint}}/v1/auth/login"
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh user access token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "jaxet82403@aersm.com",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "Around22!",
+									"type": "default"
+								}
+							]
+						},
+						"url": "{{endpoint}}/v1/auth/refresh_token"
+					},
+					"response": []
+				},
+				{
+					"name": "Request a password reset",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "{{endpoint}}/v1/auth/password/request_reset"
+					},
+					"response": []
+				},
+				{
+					"name": "Reset a password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "password",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{endpoint}}/v1/auth/password/reset/:token",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"v1",
+								"auth",
+								"password",
+								"reset",
+								":token"
+							],
+							"variable": [
+								{
+									"key": "token",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Complete the profile of a user",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "avatar",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": "{{endpoint}}/v1/auth/complete_profile"
+					},
+					"response": []
+				},
+				{
+					"name": "Update the profile of a user",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "description",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "image_url",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "display_name",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": "{{endpoint}}/v1/auth/update_profile"
+					},
+					"response": []
+				}
+			],
+			"description": "User authentication and update"
+		},
+		{
+			"name": "scan",
+			"item": [
+				{
+					"name": "Get scan by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/v1/scans/:id",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"v1",
+								"scans",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add a scan",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "image",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": "{{endpoint}}/v1/scans"
+					},
+					"response": []
+				},
+				{
+					"name": "Get scans for a user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{endpoint}}/v1/users/scans/"
+					},
+					"response": []
+				},
+				{
+					"name": "Get all scans",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{endpoint}}/v1/scans"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a scan",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/v1/scans/:id",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"v1",
+								"scans",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a scan belonging to a user",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/v1/users/scans/:id",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"v1",
+								"users",
+								"scans",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

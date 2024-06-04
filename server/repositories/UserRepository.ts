@@ -9,7 +9,7 @@ class UserRepository {
 
   async getById(id: userId) {
     const user = await TABLE.USER.query().findById(id);
-    if (!user) throw new HttpError(404, "user not found");
+    if (!user) throw new HttpError(404, "User not found");
     return user;
   }
 

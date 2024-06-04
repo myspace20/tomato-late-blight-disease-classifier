@@ -4,8 +4,6 @@
 This project seeks to solve the problem of late blight disease detection in the tomato plant. It uses the transfer learning technique to remove the boundary of limited resources faced when training models from scratch. It uses the popular MobilenetV2 as its base model.
 
 
-
-
 ## Overview
 The project consists of two servers:
 

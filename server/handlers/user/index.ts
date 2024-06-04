@@ -27,7 +27,7 @@ export const userVerifyAccount = async (req: Request, res: Response) => {
   });
   const userService = new UserService();
   await userService.verifyUserAccount(req.params.token);
-  res.send("account verified successfully");
+  res.send("Account verified successfully");
 };
 
 export const requestUserPasswordReset = async (req: Request, res: Response) => {
@@ -67,7 +67,7 @@ export const activateUser = async (req: Request, res: Response) => {
   };
   await activateProfileSchema.validateAsync(data,{abortEarly:false})
   await userService.activateUser(req.user.userId,data)
-  res.send('profile updated sucessfully');
+  res.send('Profile updated sucessfully');
 };
 
 
@@ -85,5 +85,5 @@ export const updateProfile = async (req: Request, res: Response) => {
   };
   await updateProfileSchema.validateAsync(data,{abortEarly:false})
   await userService.activateUser(req.user.userId,data)
-  res.send('profile updated sucessfully');
+  res.send('Profile updated sucessfully');
 };

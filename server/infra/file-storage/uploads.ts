@@ -1,9 +1,8 @@
-import multer, { Multer } from "multer";
+import multer from "multer";
 import { createClient } from "@supabase/supabase-js";
 import config from "../../../config/default";
 import { decode } from "base64-arraybuffer";
 import fs from "fs";
-import { HttpError } from "../../util/HttpError";
 
 const supabase = createClient(config.supabaseConnString, config.supabaseKey);
 

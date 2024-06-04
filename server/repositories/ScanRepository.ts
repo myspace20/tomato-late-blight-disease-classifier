@@ -6,7 +6,7 @@ class ScanRepository {
   async getById(id: scanId) {
     const scan = await TABLE.SCANS.query().findById(id);
     if (!scan) {
-      throw new HttpError(404, "scan not found");
+      throw new HttpError(404, "Scan not found");
     }
     return scan;
   }
@@ -18,7 +18,7 @@ class ScanRepository {
   async findByFilter(query: scanQuery) {
     const scan = await TABLE.SCANS.query().findOne(query);
     if (!scan) {
-      throw new HttpError(404, "scan not found");
+      throw new HttpError(404, "Scan not found");
     }
     return scan;
   }
@@ -26,7 +26,7 @@ class ScanRepository {
   async findManyByFilter(query: scanQuery) {
     const scan = await TABLE.SCANS.query().where(query);
     if (!scan) {
-      throw new HttpError(404, "scan not found");
+      throw new HttpError(404, "Scan not found");
     }
     return scan;
   }

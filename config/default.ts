@@ -45,9 +45,9 @@ const redis = {
   password: `${process.env.REDIS_PASSWORD}`,
 };
 
-const supabaseConnString = String(process.env.SUPABASE_CONN_STRING);
+const supabaseConnString = String(process.env.SUPA_BASE_CONN_STRING);
 
-const supabaseKey = String(process.env.SUPABASE_KEY);
+const supabaseKey = String(process.env.SUPA_BASE_KEY);
 
 const database = {
   test_url: process.env.TEST_DATABASE_URL,
